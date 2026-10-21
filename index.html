@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore furniture inspiration and contact JM Business in Khatla, Aizawl.">
+  <title>JM Business | Furniture & Living</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f4ee;
+      --paper: #fffdf9;
+      --ink: #282821;
+      --muted: #77766d;
+      --brown: #76543b;
+      --line: #e5dfd5;
+      --green: #425448;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .announcement {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,253,249,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .brand span { color: var(--brown); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover { color: var(--brown); }
+
+    .nav-cta, .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 19px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      cursor: pointer;
+      transition: .2s ease;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover, .btn:hover {
+      background: var(--brown);
+      border-color: var(--brown);
+      transform: translateY(-1px);
+    }
+
+    .btn-light {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn-light:hover { color: white; }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .hero {
+      padding: 55px 0 70px;
+      background: var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 19px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 500;
+      line-height: 1.13;
+    }
+
+    h1 {
+      font-size: clamp(43px, 5.3vw, 69px);
+      letter-spacing: -1.8px;
+      max-width: 540px;
+    }
+
+    .hero-copy {
+      max-width: 440px;
+      margin: 22px 0 28px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .button-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-image {
+      min-height: 480px;
+      background: #ddd2c4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+    }
+
+    .image-note {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      background: var(--paper);
+      padding: 12px 16px;
+      font-size: 12px;
+      max-width: 230px;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+      padding: 23px 0;
+      text-align: center;
+      gap: 15px;
+    }
+
+    .trust-strip strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .trust-strip span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    section { padding: 82px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2, .about-copy h2, .contact-copy h2 {
+      font-size: clamp(33px, 4vw, 46px);
+      letter-spacing: -1px;
+    }
+
+    .section-head p {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 22px;
+    }
+
+    .filter {
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      background: white;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .filter.active, .filter:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 350px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      margin-bottom: 25px;
+      outline: none;
+      background: white;
+    }
+
+    .search-box:focus { border-color: var(--brown); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .product-card { min-width: 0; }
+
+    .product-image {
+      aspect-ratio: 4 / 4.2;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+
+    .product-card:hover .product-image img { transform: scale(1.04); }
+
+    .product-info { padding: 15px 1px 5px; }
+
+    .product-category {
+      color: var(--brown);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+    }
+
+    .product-info h3 { font-size: 23px; margin: 5px 0; }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 13px;
+    }
+
+    .product-link {
+      font-size: 12px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--brown);
+      padding-bottom: 3px;
+    }
+
+    .empty-message {
+      grid-column: 1 / -1;
+      padding: 30px;
+      background: var(--cream);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 22px;
+    }
+
+    .about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 430px;
+      background: #e3d7c8;
+      overflow: hidden;
+    }
+
+    .about-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    .about-copy p {
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .feature-list { list-style: none; margin: 24px 0 28px; }
+
+    .feature-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: var(--brown);
+      font-weight: 700;
+      margin-right: 12px;
+    }
+
+    .review-card {
+      background: var(--cream);
+      padding: 32px;
+      border: 1px solid var(--line);
+      max-width: 720px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .stars { color: #a77b36; letter-spacing: 4px; font-size: 20px; }
+
+    .review-card blockquote {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(23px, 3vw, 33px);
+      line-height: 1.4;
+      margin: 17px 0;
+    }
+
+    .review-card p { color: var(--muted); font-size: 12px; }
+
+    .contact { background: var(--green); color: white; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 50px;
+    }
+
+    .contact .eyebrow { color: #d9c6a9; }
+    .contact-copy h2 { max-width: 440px; }
+
+    .contact-copy > p {
+      color: #e0e4df;
+      font-size: 14px;
+      margin: 20px 0;
+    }
+
+    .contact-details { margin-top: 28px; }
+
+    .contact-details div {
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      font-size: 13px;
+    }
+
+    .contact-details span {
+      display: block;
+      color: #c7d0c8;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .contact .btn { background: white; color: var(--ink); border-color: white; }
+    .contact .btn:hover { background: #e8dfd2; }
+
+    .map-frame {
+      min-height: 370px;
+      border: 0;
+      width: 100%;
+      background: #e6e0d6;
+    }
+
+    footer { background: #242720; color: white; padding: 26px 0; }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer p { color: #c6c8c0; font-size: 11px; }
+
+    .footer-links { display: flex; gap: 18px; font-size: 12px; }
+
+    @media (max-width: 850px) {
+      .hero-grid { gap: 28px; }
+      .hero-image, .hero-image img { min-height: 390px; }
+      .nav-links { gap: 15px; }
+      .nav-cta { display: none; }
+      .about-grid, .contact-grid { gap: 32px; }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(100% - 30px, 500px); }
+      .nav { min-height: 66px; }
+      .brand { font-size: 24px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        padding: 20px;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 5px; }
+      .hero { padding: 40px 0; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 30px; }
+      h1 { font-size: 47px; }
+      .hero-image, .hero-image img { min-height: 330px; }
+      section { padding: 60px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
+      .product-info h3 { font-size: 19px; }
+      .product-info p { font-size: 11px; }
+      .about-image { height: 310px; }
+      .trust-strip { gap: 8px; }
+      .trust-strip strong { font-size: 11px; }
+      .trust-strip span { font-size: 10px; }
+      .review-card { padding: 25px 18px; }
+      .map-frame { min-height: 300px; }
+    }
+
+    @media (max-width: 370px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .button-row .btn { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement" id="businessAnnouncement">FURNITURE & LIVING INSPIRATION · AIZAWL, MIZORAM</div>
+
+  <header>
+    <div class="container nav">
+      
+<a class="brand" href="#home">
+  <span id="brandShort">JM</span>
+  <span id="brandName">Business.</span>
+</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="#contact">Get in touch ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Make yourself at home</p>
+          <h1 id="heroTagline">Thoughtful furniture. Beautiful living.</h1>
+          <p class="hero-copy">
+            Discover furniture inspiration for your home. Connect with JM Business
+            in Khatla, Aizawl, to ask about available products and options.
+          </p>
+          <div class="button-row">
+            <a class="btn" href="#collection">Explore collection ↗</a>
+            <a class="btn btn-light config-whatsapp" href="https://wa.me/919774632426" target="_blank" rel="noopener">WhatsApp us</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+               alt="Warm, contemporary living room furniture" fetchpriority="high">
+          <div class="image-note">Find inspiration for your living space.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container trust-strip">
+      <div><strong>Home & Living</strong><span>Explore furniture ideas</span></div>
+      <div><strong>Local Business</strong><span>Based in Khatla, Aizawl</span></div>
+      <div><strong>Direct Enquiries</strong><span>Ask about availability</span></div>
+    </div>
+
+    <section id="collection">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Find your style</p>
+            <h2 id="collectionTitle">Explore the collection</h2>
+
+<p id="collectionDescription">
+  Browse these illustrative furniture styles and contact the store to confirm actual products, prices and availability.
+</p>
+
+<div class="filters" id="filters"></div>
+
+<input
+  class="search-box"
+  id="productSearch"
+  type="search"
+  placeholder="Search furniture styles..."
+  aria-label="Search furniture styles"
+>
+
+<div class="product-grid" id="productGrid"></div>
+
+<p class="disclaimer" id="productDisclaimer">
+  Demo notice: These photos and furniture categories are illustrative examples, not a verified inventory of JM Business. Please enquire with the store for real products and prices.
+</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+               alt="Bright and welcoming interior design inspiration" loading="lazy">
+        </div>
+
+        <div class="about-copy">
+  <p class="eyebrow" id="aboutEyebrow">A local destination</p>
+
+  <h2 id="aboutTitle">Your home, your style.</h2>
+
+  <p id="aboutDescription">
+    Every home has its own personality. Use this space to explore ideas,
+    discover styles you like and get in touch with JM Business about your needs.
+  </p>
+
+  <ul class="feature-list" id="aboutFeatures"></ul>
+
+  <a class="btn" href="#contact" id="aboutButton">Find the store ↗</a>
+</div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Customer feedback</p>
+            <h2>Hear from customers</h2>
+          </div>
+          <p>Read customer feedback on the store's public Google listing.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>“Excellent quality for good price.”</blockquote>
+          <p>Customer review excerpt · View the public listing for more reviews.</p>
+          <div style="margin-top:22px">
+           <a class="btn config-map" href="https://www.google.com/maps/search/?api=1&query=JM+Business+Khatla+Aizawl" target="_blank" rel="noopener">View Google listing ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Let's connect</p>
+          <h2>Have something in mind?</h2>
+          <p>Contact JM Business to ask about furniture, product availability and prices.</p>
+
+          <div class="button-row">
+           <a class="btn config-whatsapp" href="https://wa.me/919774632426" target="_blank" rel="noopener">WhatsApp us</a>
+            <a class="btn config-phone" href="tel:+919774632426">Call the store</a>
+          </div>
+
+          <div class="contact-details">
+            <div>
+              <span>LOCATION</span>
+              <p class="config-address">Khatla, Aizawl, Mizoram 796001</p>
+            </div>
+            <div>
+              <span>PHONE</span>
+             <a class="config-phone" href="tel:+919774632426" id="businessPhone">+91 97746 32426</a>
+            </div>
+            <div>
+              <span>VISIT</span>
+              Check the map and confirm opening hours before visiting.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <iframe
+            class="map-frame"
+            title="Map search for JM Business in Khatla, Aizawl"
+            id="businessMap"
+            src="https://maps.google.com/maps?q=JM%20Business%20Khatla%20Aizawl%20Mizoram&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <p style="font-size:11px;margin-top:10px;color:#e0e4df">
+            <a class="config-map" href="https://www.google.com/maps/search/?api=1&query=JM+Business+Khatla+Aizawl" target="_blank" rel="noopener">Open directions in Google Maps ↗</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+     <a class="brand" href="#home">
+  <span id="brandShort">JM</span>
+  <span id="brandName">Business.</span>
+</a>
+     <p id="businessSubtitle">Furniture & living inspiration · Aizawl, Mizoram</p>
+      <div class="footer-links">
+        <a href="#collection">Collection</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+<script src="config.js"></script>
+  <script>
+// Apply business settings from config.js
+// Apply theme colors from config.js
+const root = document.documentElement;
+const productSearch = document.getElementById("productSearch");
+const productGrid = document.getElementById("productGrid");
+
+root.style.setProperty("--cream", siteConfig.theme.cream);
+root.style.setProperty("--paper", siteConfig.theme.paper);
+root.style.setProperty("--ink", siteConfig.theme.ink);
+root.style.setProperty("--brown", siteConfig.theme.brown);
+root.style.setProperty("--green", siteConfig.theme.green);
+document.title = `${siteConfig.businessName} | ${siteConfig.businessType}`;
+document.getElementById("heroTagline").textContent =
+  siteConfig.tagline;
+
+  // Configure collection section text
+document.getElementById("collectionTitle").textContent =
+  siteConfig.collectionTitle;
+
+document.getElementById("collectionDescription").textContent =
+  siteConfig.collectionDescription;
+
+productSearch.placeholder = siteConfig.searchPlaceholder;
+productSearch.setAttribute("aria-label", siteConfig.searchPlaceholder);
+
+document.getElementById("productDisclaimer").textContent =
+  siteConfig.disclaimer;
+  // Connect WhatsApp links to config.js
+document.querySelectorAll(".config-whatsapp").forEach(link => {
+  link.href = `https://wa.me/${siteConfig.whatsapp}`;
+});
+// Connect phone links to config.js
+document.querySelectorAll(".config-phone").forEach(link => {
+  link.href = `tel:${siteConfig.phone}`;
+});
+// Update visible phone numbers from config.js
+document.querySelectorAll(".config-phone").forEach(link => {
+  link.textContent = siteConfig.phone;
+});
+// Connect business address to config.js
+document.querySelectorAll(".config-address").forEach(el => {
+  el.textContent = siteConfig.address;
+});
+// Connect Google Maps links to config.js
+document.querySelectorAll(".config-map").forEach(link => {
+  link.href = siteConfig.googleMapsUrl;
+});
+// Update business subtitle
+document.getElementById("businessSubtitle").textContent =
+  siteConfig.businessSubtitle;
+
+// Update announcement bar
+document.getElementById("businessAnnouncement").textContent =
+  siteConfig.announcement;
+
+// Connect embedded map to the configured address
+document.getElementById("businessMap").src =
+  `https://maps.google.com/maps?q=${encodeURIComponent(siteConfig.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+document.querySelectorAll("#brandShort").forEach(el => {
+  el.textContent = siteConfig.shortName;
+});
+
+document.querySelectorAll("#brandName").forEach(el => {
+  el.textContent = siteConfig.businessName
+    .replace(siteConfig.shortName, "")
+    .trim() + ".";
+});
+// Generate category filter buttons from config.js
+const filtersContainer = document.getElementById("filters");
+
+filtersContainer.innerHTML = Object.entries(siteConfig.categories)
+  .map(([category, label], index) => `
+    <button
+      class="filter ${index === 0 ? "active" : ""}"
+      data-category="${category}">
+      ${label}
+    </button>
+  `)
+  .join("");
+  // Configure About section text
+document.getElementById("aboutEyebrow").textContent =
+  siteConfig.aboutEyebrow;
+
+document.getElementById("aboutTitle").textContent =
+  siteConfig.aboutTitle;
+
+document.getElementById("aboutDescription").textContent =
+  siteConfig.aboutDescription;
+
+document.getElementById("aboutButton").textContent =
+  siteConfig.aboutButton;
+
+document.getElementById("aboutFeatures").innerHTML =
+  siteConfig.aboutFeatures
+    .map(feature => `<li>${feature}</li>`)
+    .join("");
+
+document.querySelector(".about-image img").alt =
+  siteConfig.aboutImageAlt;
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Generate product cards from config.js before setting up filters/search.
+    document.getElementById("productGrid").innerHTML =
+      siteConfig.products.map(product => `
+        <article
+          class="product-card"
+          data-category="${product.category}"
+          data-name="${`${product.name} ${product.searchTerms || ""}`.toLowerCase()}"
+        >
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.imageAlt}" loading="lazy">
+          </div>
+          <div class="product-info">
+            <span class="product-category">
+              ${siteConfig.categories[product.category] || product.category}
+            </span>
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <a class="product-link ask-link" href="#">
+              ${product.message || "Ask about this style"} ↗
+            </a>
+          </div>
+        </article>
+      `).join("");
+
+    // Product category filters and search
+
+let activeCategory = "all";
+
+function getFilterButtons() {
+  return document.querySelectorAll(".filter");
+}
+
+function getProductCards() {
+  return document.querySelectorAll(".product-card");
+}
+
+    function filterProducts() {
+      const searchTerm = productSearch.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      getProductCards().forEach(card => {
+        const matchesCategory =
+          activeCategory === "all" || card.dataset.category === activeCategory;
+        const matchesSearch =
+          card.dataset.name.toLowerCase().includes(searchTerm);
+
+        const show = matchesCategory && matchesSearch;
+        card.hidden = !show;
+        if (show) visibleCount++;
+      });
+
+      let message = document.getElementById("emptyMessage");
+
+      if (visibleCount === 0) {
+        if (!message) {
+          message = document.createElement("p");
+          message.id = "emptyMessage";
+          message.className = "empty-message";
+          message.textContent = "No matching styles found. Try another search.";
+          productGrid.appendChild(message);
+        }
+      } else if (message) {
+        message.remove();
+      }
+    }
+
+   document.getElementById("filters").addEventListener("click", event => {
+  const button = event.target.closest(".filter");
+
+  if (!button) return;
+
+  activeCategory = button.dataset.category;
+
+  getFilterButtons().forEach(item => item.classList.remove("active"));
+  button.classList.add("active");
+
+  filterProducts();
+});
+
+    productSearch.addEventListener("input", filterProducts);
+
+    // Ask about a displayed style via WhatsApp
+    document.querySelectorAll(".ask-link").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        const card = link.closest(".product-card");
+        const styleName = card.querySelector("h3").textContent;
+        const message = `Hello ${siteConfig.businessName}, I'd like to ask whether you have products similar to this style: ${styleName}. Could you share availability and pricing?`;
+        window.open(
+          `https://wa.me/${siteConfig.whatsapp}?text=` + encodeURIComponent(message),
+          "_blank",
+          "noopener"
+        );
+      });
+    });
+  </script>
+</body>
+</html>
+
